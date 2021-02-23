@@ -38,4 +38,13 @@ public class SearchController {
         model.addAttribute("searchValue", searchTerm);
         return "search";
     }
+
+    @GetMapping("{searchLink}")
+    public String displayNewListFromLink(Model model, @PathVariable String searchLink) {
+        ArrayList<Job> jobs = null;
+        jobs = JobData.findByValue(searchLink);
+        model.addAttribute("jobs", jobs);
+        model.addAttribute("title", "Jobs with " + searchLink);
+        return "list-jobs";
+    }
 }

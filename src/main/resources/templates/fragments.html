@@ -31,12 +31,12 @@
         <tbody>
         <tr th:each="job : ${jobs}">
             <td>
-                <p th:text='${"ID: " + job.id}'></p>
-                <p th:text='${"Name: " + job.name}'></p>
-                <p th:text='${"Employer: " + job.employer}'></p>
-                <p th:text='${"Location: " + job.location}'></p>
-                <p th:text='${"Position: " + job.positionType}'></p>
-                <p th:text='${"Skill: " + job.coreCompetency}'></p>
+                <p><span class="text-uppercase">ID: </span><span th:text='${job.id}'></span></p>
+                <p><span class="text-uppercase">Name: </span><span th:text='${job.name}'></span></p>
+                <p><span class="text-uppercase">Employer: </span><a th:href="@{{searchLink}(searchLink=${job.employer})}" th:text='${job.employer}'></a></p>
+                <p><span class="text-uppercase">Location: </span><a th:href="@{{searchLink}(searchLink=${job.location})}" th:text='${job.location}'></a></p>
+                <p><span class="text-uppercase">Position: </span><a th:href="@{{searchLink}(searchLink=${job.positionType})}" th:text='${job.positionType}'></a></p>
+                <p><span class="text-uppercase">Skill: </span><a th:href="@{{searchLink}(searchLink=${job.coreCompetency})}" th:text='${job.coreCompetency}'></a></p>
             </td>
         </tr>
         </tbody>
