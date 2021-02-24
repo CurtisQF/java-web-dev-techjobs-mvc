@@ -15,7 +15,7 @@ import static org.launchcode.javawebdevtechjobsmvc.controllers.ListController.co
  */
 @Controller
 @RequestMapping("search")
-public class SearchController {
+public class SearchController extends TechJobsController{
 
     @RequestMapping(value = "")
     public String search(Model model) {
@@ -35,6 +35,8 @@ public class SearchController {
         }
         model.addAttribute("jobs", jobs);
         model.addAttribute("columns", columnChoices);
+
+        //Bonus #1: Allow the search keyword form field to stay populated after search
         model.addAttribute("searchValue", searchTerm);
         return "search";
     }
